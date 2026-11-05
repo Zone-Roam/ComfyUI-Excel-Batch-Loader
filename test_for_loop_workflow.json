@@ -1,0 +1,105 @@
+{
+  "last_node_id": 6,
+  "last_link_id": 8,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "ExcelRowCounter",
+      "pos": [100, 100],
+      "size": {"0": 315, "1": 150},
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {"name": "row_count", "type": "INT", "links": [1], "shape": 3},
+        {"name": "status_message", "type": "STRING", "links": null, "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "ExcelRowCounter"},
+      "widgets_values": ["example.xlsx", false, false, true, "0"]
+    },
+    {
+      "id": 2,
+      "type": "ForLoop",
+      "pos": [500, 100],
+      "size": {"0": 315, "1": 150},
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"name": "stop", "type": "INT", "link": 1}
+      ],
+      "outputs": [
+        {"name": "i", "type": "INT", "links": [2], "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "ForLoop"},
+      "widgets_values": [2, 7, 1]
+    },
+    {
+      "id": 3,
+      "type": "ExcelLoaderForLoop",
+      "pos": [900, 100],
+      "size": {"0": 400, "1": 200},
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {"name": "start_row_number", "type": "INT", "link": 2}
+      ],
+      "outputs": [
+        {"name": "column_1", "type": "STRING", "links": [3], "shape": 3},
+        {"name": "column_2", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_3", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_4", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_5", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_6", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_7", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_8", "type": "STRING", "links": null, "shape": 3},
+        {"name": "column_9", "type": "STRING", "links": null, "shape": 3},
+        {"name": "current_row", "type": "STRING", "links": [4], "shape": 3}
+      ],
+      "properties": {"Node name for S&R": "ExcelLoaderForLoop"},
+      "widgets_values": ["example.xlsx", 2, 1, false, true, "0"]
+    },
+    {
+      "id": 4,
+      "type": "ShowText",
+      "pos": [1400, 100],
+      "size": {"0": 315, "1": 100},
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"name": "text", "type": "STRING", "link": 3}
+      ],
+      "outputs": [],
+      "properties": {"Node name for S&R": "ShowText"},
+      "widgets_values": [""]
+    },
+    {
+      "id": 5,
+      "type": "ShowText",
+      "pos": [1400, 250],
+      "size": {"0": 315, "1": 100},
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"name": "text", "type": "STRING", "link": 4}
+      ],
+      "outputs": [],
+      "properties": {"Node name for S&R": "ShowText"},
+      "widgets_values": [""]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "INT"],
+    [2, 2, 0, 3, 0, "INT"],
+    [3, 3, 0, 4, 0, "STRING"],
+    [4, 3, 9, 5, 0, "STRING"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
